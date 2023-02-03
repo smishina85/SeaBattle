@@ -14,7 +14,7 @@ class BoardUsedException(BoardException):
 class BoardWrongShipException(BoardException):
     pass
 
-HID = False  # False means board is open; True means board is hidden
+HID = True  # False means board is open; True means board is hidden
 L = 6 # Size of the Board
 FREEDOTS = []  # list of free dots of the board (LxL) ; created for AI to random.choices - not to repeat the same shot
 for a in range(0,L):
