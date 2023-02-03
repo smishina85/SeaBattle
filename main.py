@@ -14,7 +14,7 @@ class BoardUsedException(BoardException):
 class BoardWrongShipException(BoardException):
     pass
 
-HID = False  # False means board is open; True means board is hidden
+HID = True  # False means board is open; True means board is hidden
 L = 6 # Size of the Board
 FREEDOTS = []  # list of free dots of the board (LxL) ; created for AI to random.choices - not to repeat the same shot
 for a in range(0,L):
@@ -100,7 +100,7 @@ class Board:
 
         self.contour(ship)
 
-    def shot(self, bd, wounded = False):
+    def shot(self, bd):
         if self.out(bd):
             raise BoardOutException()
 
@@ -119,8 +119,8 @@ class Board:
                     return False
                 else:
                     print("The ship have been wounded!")
-                    wounded = True
-                    return True, wounded
+                    return True
+
         self.field[bd.x][bd.y] = "."
         print("Shot by!")
         return False
